@@ -3,13 +3,12 @@ import poplib
 import re
 import time
 
-
 from django.core import mail
+
 from selenium.webdriver.common.keys import Keys
 
 from .base import FunctionalTest
 
-TEST_EMAIL = 'edith@example.com'
 SUBJECT = 'Your login link for Superlists'
 
 
@@ -65,6 +64,7 @@ class LoginTest(FunctionalTest):
         ))
 
         # She checks her email and finds a message
+        time.sleep(15)
         body = self.wait_for_email(test_email, SUBJECT)
 
         # It has a url link in it
